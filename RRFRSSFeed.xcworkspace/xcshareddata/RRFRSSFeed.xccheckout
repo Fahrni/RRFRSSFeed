@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>945068E0-628A-4831-9111-E01BB8EE4D8C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>RRFRSSFeed</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BB9D06A1-481A-4BE6-8A46-12B9F136D8CD</key>
+		<string>https://bitbucket.org/fahrni/rrfrssfeed.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>RRFRSSFeed.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BB9D06A1-481A-4BE6-8A46-12B9F136D8CD</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://bitbucket.org/fahrni/rrfrssfeed.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BB9D06A1-481A-4BE6-8A46-12B9F136D8CD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BB9D06A1-481A-4BE6-8A46-12B9F136D8CD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RRFRSSFeed</string>
+		</dict>
+	</array>
+</dict>
+</plist>

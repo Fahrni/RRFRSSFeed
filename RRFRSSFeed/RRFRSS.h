@@ -8,4 +8,4 @@
 #import "RRFRSSFeedTypes.h"
 #import "RRFRSSFeed.h"
 #import "RRFRSSChannel.h"
-#import "RRFRSSElement.h"
+#import "RRFRSSItem.h"

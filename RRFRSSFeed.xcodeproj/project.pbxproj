@@ -26,7 +26,7 @@
 		D484EAFF198D3614006827A7 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D484EAFD198D3614006827A7 /* Podfile */; };
 		D484EB00198D3614006827A7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D484EAFE198D3614006827A7 /* README.md */; };
 		D484EB03198D36D9006827A7 /* RRFRSSChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = D484EB02198D36D9006827A7 /* RRFRSSChannel.m */; };
-		D484EB06198D36F2006827A7 /* RRFRSSElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D484EB05198D36F2006827A7 /* RRFRSSElement.m */; };
+		D484EB06198D36F2006827A7 /* RRFRSSItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D484EB05198D36F2006827A7 /* RRFRSSItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +67,8 @@
 		D484EAFE198D3614006827A7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
 		D484EB01198D36D9006827A7 /* RRFRSSChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRFRSSChannel.h; sourceTree = "<group>"; };
 		D484EB02198D36D9006827A7 /* RRFRSSChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRFRSSChannel.m; sourceTree = "<group>"; };
-		D484EB04198D36F2006827A7 /* RRFRSSElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRFRSSElement.h; sourceTree = "<group>"; };
-		D484EB05198D36F2006827A7 /* RRFRSSElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRFRSSElement.m; sourceTree = "<group>"; };
+		D484EB04198D36F2006827A7 /* RRFRSSItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRFRSSItem.h; sourceTree = "<group>"; };
+		D484EB05198D36F2006827A7 /* RRFRSSItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRFRSSItem.m; sourceTree = "<group>"; };
 		D484EB07198D39AF006827A7 /* RRFRSS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRFRSS.h; sourceTree = "<group>"; };
 		D484EB08198D3B78006827A7 /* RRFRSSFeedTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRFRSSFeedTypes.h; sourceTree = "<group>"; };
 		D484EB09198D40A4006827A7 /* RRFRSSConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRFRSSConst.h; sourceTree = "<group>"; };
@@ -195,8 +195,8 @@
 				D484EAF9198D358F006827A7 /* RRFRSSFeed.m */,
 				D484EB01198D36D9006827A7 /* RRFRSSChannel.h */,
 				D484EB02198D36D9006827A7 /* RRFRSSChannel.m */,
-				D484EB04198D36F2006827A7 /* RRFRSSElement.h */,
-				D484EB05198D36F2006827A7 /* RRFRSSElement.m */,
+				D484EB04198D36F2006827A7 /* RRFRSSItem.h */,
+				D484EB05198D36F2006827A7 /* RRFRSSItem.m */,
 			);
 			name = RSS;
 			sourceTree = "<group>";
@@ -338,7 +338,7 @@
 			files = (
 				D484EAD0198D323B006827A7 /* main.m in Sources */,
 				D484EAFA198D358F006827A7 /* RRFRSSFeed.m in Sources */,
-				D484EB06198D36F2006827A7 /* RRFRSSElement.m in Sources */,
+				D484EB06198D36F2006827A7 /* RRFRSSItem.m in Sources */,
 				D484EB03198D36D9006827A7 /* RRFRSSChannel.m in Sources */,
 				D484EAD4198D323B006827A7 /* RRFAppDelegate.m in Sources */,
 				D484EADA198D323B006827A7 /* RRFViewController.m in Sources */,

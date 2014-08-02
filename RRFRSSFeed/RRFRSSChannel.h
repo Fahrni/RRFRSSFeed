@@ -8,11 +8,11 @@
 #import <Foundation/Foundation.h>
 
 @interface RRFRSSChannel : NSObject
-// Required RSS 2.0 Channel Elements
+// Required RSS 2.0 Channel Elements (http://cyber.law.harvard.edu/rss/rss.html#requiredChannelElements)
 @property (strong, nonatomic) NSString* title;
 @property (strong, nonatomic) NSString* link;
 @property (strong, nonatomic) NSString* description;
-// Optional RRS 2.0 Channel Elements
+// Optional RRS 2.0 Channel Elements (http://cyber.law.harvard.edu/rss/rss.html#optionalChannelElements)
 @property (strong, nonatomic) NSString* language;
 @property (strong, nonatomic) NSString* copyright;
 @property (strong, nonatomic) NSString* managingEditor;
@@ -29,4 +29,6 @@
 @property (strong, nonatomic) NSString* textInput;
 @property (strong, nonatomic) NSString* skipHours;
 @property (strong, nonatomic) NSString* skipDays;
+
++ (instancetype)channelFrom:(id)channelElement;
 @end

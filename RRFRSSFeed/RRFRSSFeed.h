@@ -7,8 +7,13 @@
 //
 #import <Foundation/Foundation.h>
 #import "RRFRSSFeedTypes.h"
+#import "RRFRSSChannel.h"
 
 @interface RRFRSSFeed : NSObject
+@property (strong, nonatomic) NSString* version;
+@property (strong, nonatomic) RRFRSSChannel* channel;
+@property (strong, nonatomic) NSArray* items;
+
 + (instancetype)feedWithURLString:(NSString*)urlString;
 + (instancetype)feedWithURL:(NSURL*)url;
 

@@ -7,13 +7,21 @@
 //
 #import "RRFRSSConst.h"
 #import "RRFRSSFeed.h"
+#import "RRFRSSItem.h"
 #import "TouchXML.h"
+
+NSString* const kRRFRSSChannelPath = @"/rss/channel";
+NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
 
 @interface RRFRSSFeed ()
 @property (strong, nonatomic) NSURL* rrfURL;
+@property (strong, nonatomic) CXMLDocument* rssParser;
 @end
 
 @implementation RRFRSSFeed
+@synthesize version;
+@synthesize channel;
+@synthesize items;
 
 + (instancetype)feedWithURLString:(NSString*)urlString
 {
@@ -40,12 +48,54 @@
     dispatch_queue_t updateQueue = dispatch_queue_create(kRRFRSSUpdateQueue, NULL);
     dispatch_async(updateQueue, ^{
         NSError* error = nil;
-        CXMLDocument* rssParser = [[CXMLDocument alloc] initWithContentsOfURL:self.rrfURL options:0  error:&error];
-        if (nil == error && rssParser) {
-//            NSArray* items = [rssParser nodesForXPath:kRRFRSSChannelElement error:nil];
+        self.rssParser = [[CXMLDocument alloc] initWithContentsOfURL:self.rrfURL options:0  error:&error];
+        if (nil == error && self.rssParser) {
+            [self rssParseBasic];
+            [self rssParseChannel];
+            [self rssParseItems];
+            if (success) {
+                success(self);
+            }
+        } else if (failure) {
+            if (nil == error) {
+                error = [NSError errorWithDomain:kRRFRSSErrorDomain code:kRRFRSSInitFailed userInfo:nil];
+            }
+            failure(error);
         }
-
     });
+}
+
+- (NSError*)rssParseBasic
+{
+    NSError* error = nil;
+    id rss = [[self.rssParser rootElement] nodeForXPath:kRRFRSSRoot error:&error];
+    if ([rss isKindOfClass:[CXMLElement class]]) {
+        CXMLNode* versionNode = [((CXMLElement*)rss) attributeForName:kRRFRSSVersion];
+        self.version = versionNode.stringValue;
+    }
+    return error;
+}
+
+- (NSError*)rssParseChannel
+{
+    NSError* error = nil;
+    id channelElement = [[self.rssParser rootElement] nodeForXPath:kRRFRSSChannelPath error:&error];
+    if ([channelElement isKindOfClass:[CXMLElement class]]) {
+        self.channel = [RRFRSSChannel channelFrom:channelElement];
+    }
+    return error;
+}
+
+- (NSError*)rssParseItems
+{
+    NSError* error = nil;
+    NSArray* nodes = [[self.rssParser rootElement] nodesForXPath:kRRFRSSChannelItemPath error:&error];
+    for (CXMLNode* item in nodes) {
+        if (NSOrderedSame == [item.name compare:kRRFRSSItem]) {
+            [RRFRSSItem itemFrom:item];
+        }
+    }
+    return error;
 }
 
 @end

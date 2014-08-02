@@ -5,11 +5,11 @@ Welcome to RRF RSS Feed.
 
 I created this little chunk of code because:
 ==============================================
-A) I needed it for a project
-B) I wanted to share more code
-C) I wanted to learn more about CocoaPods
-D) I wanted to mess with blocks
-E) There is no "E"
+1. I needed it for a project
+2. I wanted to share more code
+3. I wanted to learn more about CocoaPods
+4. I wanted to mess with blocks
+5. There is no 4
 
 This code is based on the [RSS 2.0 specification.](http://cyber.law.harvard.edu/rss/rss.html) It may not be a 100% implementation, now, or ever. See point "A" above for my reasoning.
 
