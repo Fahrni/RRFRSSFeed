@@ -1,0 +1,565 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9573FF5522BC4DBCA053EEF6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EB73E2ED6874BDF8D5995FF /* libPods.a */; };
+		D484EAC4198D323B006827A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D484EAC3198D323B006827A7 /* Foundation.framework */; };
+		D484EAC6198D323B006827A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D484EAC5198D323B006827A7 /* CoreGraphics.framework */; };
+		D484EAC8198D323B006827A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D484EAC7198D323B006827A7 /* UIKit.framework */; };
+		D484EACE198D323B006827A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D484EACC198D323B006827A7 /* InfoPlist.strings */; };
+		D484EAD0198D323B006827A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D484EACF198D323B006827A7 /* main.m */; };
+		D484EAD4198D323B006827A7 /* RRFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D484EAD3198D323B006827A7 /* RRFAppDelegate.m */; };
+		D484EAD7198D323B006827A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D484EAD5198D323B006827A7 /* Main.storyboard */; };
+		D484EADA198D323B006827A7 /* RRFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D484EAD9198D323B006827A7 /* RRFViewController.m */; };
+		D484EADC198D323B006827A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D484EADB198D323B006827A7 /* Images.xcassets */; };
+		D484EAE3198D323B006827A7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D484EAE2198D323B006827A7 /* XCTest.framework */; };
+		D484EAE4198D323B006827A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D484EAC3198D323B006827A7 /* Foundation.framework */; };
+		D484EAE5198D323B006827A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D484EAC7198D323B006827A7 /* UIKit.framework */; };
+		D484EAED198D323B006827A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D484EAEB198D323B006827A7 /* InfoPlist.strings */; };
+		D484EAEF198D323B006827A7 /* RRFRSSFeedTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D484EAEE198D323B006827A7 /* RRFRSSFeedTests.m */; };
+		D484EAFA198D358F006827A7 /* RRFRSSFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = D484EAF9198D358F006827A7 /* RRFRSSFeed.m */; };
+		D484EAFF198D3614006827A7 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = D484EAFD198D3614006827A7 /* Podfile */; };
+		D484EB00198D3614006827A7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D484EAFE198D3614006827A7 /* README.md */; };
+		D484EB03198D36D9006827A7 /* RRFRSSChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = D484EB02198D36D9006827A7 /* RRFRSSChannel.m */; };
+		D484EB06198D36F2006827A7 /* RRFRSSElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D484EB05198D36F2006827A7 /* RRFRSSElement.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D484EAE6198D323B006827A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D484EAB8198D323B006827A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D484EABF198D323B006827A7;
+			remoteInfo = RRFRSSFeed;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0EB73E2ED6874BDF8D5995FF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8809E2912F714AD1AEFF5016 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		D484EAC0198D323B006827A7 /* RRFRSSFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RRFRSSFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D484EAC3198D323B006827A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D484EAC5198D323B006827A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D484EAC7198D323B006827A7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D484EACB198D323B006827A7 /* RRFRSSFeed-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RRFRSSFeed-Info.plist"; sourceTree = "<group>"; };
+		D484EACD198D323B006827A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D484EACF198D323B006827A7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D484EAD1198D323B006827A7 /* RRFRSSFeed-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RRFRSSFeed-Prefix.pch"; sourceTree = "<group>"; };
+		D484EAD2198D323B006827A7 /* RRFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRFAppDelegate.h; sourceTree = "<group>"; };
+		D484EAD3198D323B006827A7 /* RRFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRFAppDelegate.m; sourceTree = "<group>"; };
+		D484EAD6198D323B006827A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D484EAD8198D323B006827A7 /* RRFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRFViewController.h; sourceTree = "<group>"; };
+		D484EAD9198D323B006827A7 /* RRFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRFViewController.m; sourceTree = "<group>"; };
+		D484EADB198D323B006827A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D484EAE1198D323B006827A7 /* RRFRSSFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RRFRSSFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D484EAE2198D323B006827A7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D484EAEA198D323B006827A7 /* RRFRSSFeedTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RRFRSSFeedTests-Info.plist"; sourceTree = "<group>"; };
+		D484EAEC198D323B006827A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D484EAEE198D323B006827A7 /* RRFRSSFeedTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RRFRSSFeedTests.m; sourceTree = "<group>"; };
+		D484EAF8198D358F006827A7 /* RRFRSSFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRFRSSFeed.h; sourceTree = "<group>"; };
+		D484EAF9198D358F006827A7 /* RRFRSSFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRFRSSFeed.m; sourceTree = "<group>"; };
+		D484EAFD198D3614006827A7 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		D484EAFE198D3614006827A7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = SOURCE_ROOT; };
+		D484EB01198D36D9006827A7 /* RRFRSSChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRFRSSChannel.h; sourceTree = "<group>"; };
+		D484EB02198D36D9006827A7 /* RRFRSSChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRFRSSChannel.m; sourceTree = "<group>"; };
+		D484EB04198D36F2006827A7 /* RRFRSSElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRFRSSElement.h; sourceTree = "<group>"; };
+		D484EB05198D36F2006827A7 /* RRFRSSElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRFRSSElement.m; sourceTree = "<group>"; };
+		D484EB07198D39AF006827A7 /* RRFRSS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRFRSS.h; sourceTree = "<group>"; };
+		D484EB08198D3B78006827A7 /* RRFRSSFeedTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRFRSSFeedTypes.h; sourceTree = "<group>"; };
+		D484EB09198D40A4006827A7 /* RRFRSSConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRFRSSConst.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D484EABD198D323B006827A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D484EAC6198D323B006827A7 /* CoreGraphics.framework in Frameworks */,
+				D484EAC8198D323B006827A7 /* UIKit.framework in Frameworks */,
+				D484EAC4198D323B006827A7 /* Foundation.framework in Frameworks */,
+				9573FF5522BC4DBCA053EEF6 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D484EADE198D323B006827A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D484EAE3198D323B006827A7 /* XCTest.framework in Frameworks */,
+				D484EAE5198D323B006827A7 /* UIKit.framework in Frameworks */,
+				D484EAE4198D323B006827A7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D484EAB7198D323B006827A7 = {
+			isa = PBXGroup;
+			children = (
+				D484EAC9198D323B006827A7 /* RRFRSSFeed */,
+				D484EAE8198D323B006827A7 /* RRFRSSFeedTests */,
+				D484EAC2198D323B006827A7 /* Frameworks */,
+				D484EAC1198D323B006827A7 /* Products */,
+				8809E2912F714AD1AEFF5016 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		D484EAC1198D323B006827A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D484EAC0198D323B006827A7 /* RRFRSSFeed.app */,
+				D484EAE1198D323B006827A7 /* RRFRSSFeedTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D484EAC2198D323B006827A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D484EAC3198D323B006827A7 /* Foundation.framework */,
+				D484EAC5198D323B006827A7 /* CoreGraphics.framework */,
+				D484EAC7198D323B006827A7 /* UIKit.framework */,
+				D484EAE2198D323B006827A7 /* XCTest.framework */,
+				0EB73E2ED6874BDF8D5995FF /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D484EAC9198D323B006827A7 /* RRFRSSFeed */ = {
+			isa = PBXGroup;
+			children = (
+				D484EAFE198D3614006827A7 /* README.md */,
+				D484EAFC198D35A9006827A7 /* RSS */,
+				D484EAFB198D359B006827A7 /* App */,
+				D484EACA198D323B006827A7 /* Supporting Files */,
+			);
+			path = RRFRSSFeed;
+			sourceTree = "<group>";
+		};
+		D484EACA198D323B006827A7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D484EAFD198D3614006827A7 /* Podfile */,
+				D484EACB198D323B006827A7 /* RRFRSSFeed-Info.plist */,
+				D484EACC198D323B006827A7 /* InfoPlist.strings */,
+				D484EACF198D323B006827A7 /* main.m */,
+				D484EAD1198D323B006827A7 /* RRFRSSFeed-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D484EAE8198D323B006827A7 /* RRFRSSFeedTests */ = {
+			isa = PBXGroup;
+			children = (
+				D484EAEE198D323B006827A7 /* RRFRSSFeedTests.m */,
+				D484EAE9198D323B006827A7 /* Supporting Files */,
+			);
+			path = RRFRSSFeedTests;
+			sourceTree = "<group>";
+		};
+		D484EAE9198D323B006827A7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D484EAEA198D323B006827A7 /* RRFRSSFeedTests-Info.plist */,
+				D484EAEB198D323B006827A7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D484EAFB198D359B006827A7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D484EAD2198D323B006827A7 /* RRFAppDelegate.h */,
+				D484EAD3198D323B006827A7 /* RRFAppDelegate.m */,
+				D484EAD5198D323B006827A7 /* Main.storyboard */,
+				D484EAD8198D323B006827A7 /* RRFViewController.h */,
+				D484EAD9198D323B006827A7 /* RRFViewController.m */,
+				D484EADB198D323B006827A7 /* Images.xcassets */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		D484EAFC198D35A9006827A7 /* RSS */ = {
+			isa = PBXGroup;
+			children = (
+				D484EB07198D39AF006827A7 /* RRFRSS.h */,
+				D484EB08198D3B78006827A7 /* RRFRSSFeedTypes.h */,
+				D484EB09198D40A4006827A7 /* RRFRSSConst.h */,
+				D484EAF8198D358F006827A7 /* RRFRSSFeed.h */,
+				D484EAF9198D358F006827A7 /* RRFRSSFeed.m */,
+				D484EB01198D36D9006827A7 /* RRFRSSChannel.h */,
+				D484EB02198D36D9006827A7 /* RRFRSSChannel.m */,
+				D484EB04198D36F2006827A7 /* RRFRSSElement.h */,
+				D484EB05198D36F2006827A7 /* RRFRSSElement.m */,
+			);
+			name = RSS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D484EABF198D323B006827A7 /* RRFRSSFeed */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D484EAF2198D323B006827A7 /* Build configuration list for PBXNativeTarget "RRFRSSFeed" */;
+			buildPhases = (
+				9A847926CFC74163AF72BE40 /* Check Pods Manifest.lock */,
+				D484EABC198D323B006827A7 /* Sources */,
+				D484EABD198D323B006827A7 /* Frameworks */,
+				D484EABE198D323B006827A7 /* Resources */,
+				31BA4BCB4AEC4401A09DDA3D /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RRFRSSFeed;
+			productName = RRFRSSFeed;
+			productReference = D484EAC0198D323B006827A7 /* RRFRSSFeed.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D484EAE0198D323B006827A7 /* RRFRSSFeedTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D484EAF5198D323B006827A7 /* Build configuration list for PBXNativeTarget "RRFRSSFeedTests" */;
+			buildPhases = (
+				D484EADD198D323B006827A7 /* Sources */,
+				D484EADE198D323B006827A7 /* Frameworks */,
+				D484EADF198D323B006827A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D484EAE7198D323B006827A7 /* PBXTargetDependency */,
+			);
+			name = RRFRSSFeedTests;
+			productName = RRFRSSFeedTests;
+			productReference = D484EAE1198D323B006827A7 /* RRFRSSFeedTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D484EAB8198D323B006827A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RRF;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Hayseed;
+				TargetAttributes = {
+					D484EAE0198D323B006827A7 = {
+						TestTargetID = D484EABF198D323B006827A7;
+					};
+				};
+			};
+			buildConfigurationList = D484EABB198D323B006827A7 /* Build configuration list for PBXProject "RRFRSSFeed" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D484EAB7198D323B006827A7;
+			productRefGroup = D484EAC1198D323B006827A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D484EABF198D323B006827A7 /* RRFRSSFeed */,
+				D484EAE0198D323B006827A7 /* RRFRSSFeedTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D484EABE198D323B006827A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D484EADC198D323B006827A7 /* Images.xcassets in Resources */,
+				D484EACE198D323B006827A7 /* InfoPlist.strings in Resources */,
+				D484EB00198D3614006827A7 /* README.md in Resources */,
+				D484EAFF198D3614006827A7 /* Podfile in Resources */,
+				D484EAD7198D323B006827A7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D484EADF198D323B006827A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D484EAED198D323B006827A7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		31BA4BCB4AEC4401A09DDA3D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A847926CFC74163AF72BE40 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D484EABC198D323B006827A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D484EAD0198D323B006827A7 /* main.m in Sources */,
+				D484EAFA198D358F006827A7 /* RRFRSSFeed.m in Sources */,
+				D484EB06198D36F2006827A7 /* RRFRSSElement.m in Sources */,
+				D484EB03198D36D9006827A7 /* RRFRSSChannel.m in Sources */,
+				D484EAD4198D323B006827A7 /* RRFAppDelegate.m in Sources */,
+				D484EADA198D323B006827A7 /* RRFViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D484EADD198D323B006827A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D484EAEF198D323B006827A7 /* RRFRSSFeedTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D484EAE7198D323B006827A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D484EABF198D323B006827A7 /* RRFRSSFeed */;
+			targetProxy = D484EAE6198D323B006827A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D484EACC198D323B006827A7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D484EACD198D323B006827A7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D484EAD5198D323B006827A7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D484EAD6198D323B006827A7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D484EAEB198D323B006827A7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D484EAEC198D323B006827A7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D484EAF0198D323B006827A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D484EAF1198D323B006827A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D484EAF3198D323B006827A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8809E2912F714AD1AEFF5016 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RRFRSSFeed/RRFRSSFeed-Prefix.pch";
+				INFOPLIST_FILE = "RRFRSSFeed/RRFRSSFeed-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D484EAF4198D323B006827A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8809E2912F714AD1AEFF5016 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RRFRSSFeed/RRFRSSFeed-Prefix.pch";
+				INFOPLIST_FILE = "RRFRSSFeed/RRFRSSFeed-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D484EAF6198D323B006827A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RRFRSSFeed.app/RRFRSSFeed";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RRFRSSFeed/RRFRSSFeed-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "RRFRSSFeedTests/RRFRSSFeedTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D484EAF7198D323B006827A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RRFRSSFeed.app/RRFRSSFeed";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RRFRSSFeed/RRFRSSFeed-Prefix.pch";
+				INFOPLIST_FILE = "RRFRSSFeedTests/RRFRSSFeedTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D484EABB198D323B006827A7 /* Build configuration list for PBXProject "RRFRSSFeed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D484EAF0198D323B006827A7 /* Debug */,
+				D484EAF1198D323B006827A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D484EAF2198D323B006827A7 /* Build configuration list for PBXNativeTarget "RRFRSSFeed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D484EAF3198D323B006827A7 /* Debug */,
+				D484EAF4198D323B006827A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D484EAF5198D323B006827A7 /* Build configuration list for PBXNativeTarget "RRFRSSFeedTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D484EAF6198D323B006827A7 /* Debug */,
+				D484EAF7198D323B006827A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D484EAB8198D323B006827A7 /* Project object */;
+}
