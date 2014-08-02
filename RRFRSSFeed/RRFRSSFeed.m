@@ -16,6 +16,8 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
 @interface RRFRSSFeed ()
 @property (strong, nonatomic) NSURL* rrfURL;
 @property (strong, nonatomic) CXMLDocument* rssParser;
+
+@property (strong, nonatomic) NSMutableArray* rssItems;
 @end
 
 @implementation RRFRSSFeed
@@ -39,6 +41,11 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
         self.rrfURL = url;
     }
     return self;
+}
+
+- (NSArray*)items
+{
+    return self.rssItems;
 }
 
 - (void)update:(RRFRSSFeedSuccessBlock)success
@@ -90,9 +97,15 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
 {
     NSError* error = nil;
     NSArray* nodes = [[self.rssParser rootElement] nodesForXPath:kRRFRSSChannelItemPath error:&error];
-    for (CXMLNode* item in nodes) {
-        if (NSOrderedSame == [item.name compare:kRRFRSSItem]) {
-            [RRFRSSItem itemFrom:item];
+    if (nodes && nodes.count) {
+        self.rssItems = [NSMutableArray new];
+        for (CXMLNode* item in nodes) {
+            if (NSOrderedSame == [item.name compare:kRRFRSSItem]) {
+                RRFRSSItem* rssItem = [RRFRSSItem itemFrom:item];
+                if (item) {
+                    [self.rssItems addObject:rssItem];
+                }
+            }
         }
     }
     return error;
