@@ -43,6 +43,11 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
     return self;
 }
 
+- (NSString*)url
+{
+    return self.rrfURL.absoluteString;
+}
+
 - (NSArray*)items
 {
     return self.rssItems;

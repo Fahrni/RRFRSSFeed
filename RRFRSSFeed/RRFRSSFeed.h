@@ -11,8 +11,9 @@
 
 @interface RRFRSSFeed : NSObject
 @property (strong, nonatomic) NSString* version;
+@property (strong, nonatomic) NSString* url;
 @property (strong, nonatomic) RRFRSSChannel* channel;
-@property (strong, nonatomic, readonly) NSArray* items;
+@property (strong, nonatomic) NSArray* items;
 
 + (instancetype)feedWithURLString:(NSString*)urlString;
 + (instancetype)feedWithURL:(NSURL*)url;
