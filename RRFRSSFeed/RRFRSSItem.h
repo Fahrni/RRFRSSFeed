@@ -9,16 +9,16 @@
 
 @interface RRFRSSItem : NSObject
 // From the RSS 2.0 Item specification - http://cyber.law.harvard.edu/rss/rss.html#hrelementsOfLtitemgt
-@property (strong, nonatomic) NSString* title;
-@property (strong, nonatomic) NSString* link;
-@property (strong, nonatomic) NSString* description;
-@property (strong, nonatomic) NSString* author;
-@property (strong, nonatomic) NSString* category;
-@property (strong, nonatomic) NSString* comments;
-@property (strong, nonatomic) NSString* enclosure;
-@property (strong, nonatomic) NSString* guid;
-@property (strong, nonatomic) NSString* pubDate;
-@property (strong, nonatomic) NSString* source;
+@property (nonatomic, readonly, copy) NSString* title;
+@property (nonatomic, readonly, copy) NSString* link;
+@property (nonatomic, readonly, copy) NSString* itemDescription;
+@property (nonatomic, readonly, copy) NSString* author;
+@property (nonatomic, readonly, copy) NSString* category;
+@property (nonatomic, readonly, copy) NSString* comments;
+@property (nonatomic, readonly, copy) NSString* enclosure;
+@property (nonatomic, readonly, copy) NSString* guid;
+@property (nonatomic, readonly, copy) NSString* pubDate;
+@property (nonatomic, readonly, copy) NSString* source;
 
 + (instancetype)itemFrom:(id)itemElement;
 @end

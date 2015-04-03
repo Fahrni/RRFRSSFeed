@@ -9,17 +9,20 @@
 #import "RRFRSSConst.h"
 #import "CXMLElement.h"
 
+@interface RRFRSSItem ()
+@property (nonatomic, readwrite, copy) NSString* title;
+@property (nonatomic, readwrite, copy) NSString* link;
+@property (nonatomic, readwrite, copy) NSString* itemDescription;
+@property (nonatomic, readwrite, copy) NSString* author;
+@property (nonatomic, readwrite, copy) NSString* category;
+@property (nonatomic, readwrite, copy) NSString* comments;
+@property (nonatomic, readwrite, copy) NSString* enclosure;
+@property (nonatomic, readwrite, copy) NSString* guid;
+@property (nonatomic, readwrite, copy) NSString* pubDate;
+@property (nonatomic, readwrite, copy) NSString* source;
+@end
+
 @implementation RRFRSSItem
-@synthesize title;
-@synthesize link;
-@synthesize description;
-@synthesize author;
-@synthesize category;
-@synthesize comments;
-@synthesize enclosure;
-@synthesize guid;
-@synthesize pubDate;
-@synthesize source;
 
 + (instancetype)itemFrom:(id)itemElement
 {
@@ -30,7 +33,7 @@
         } else if (NSOrderedSame == [childNode.name compare:kRRFRSSLink]) {
             item.link = childNode.stringValue;
         } else if (NSOrderedSame == [childNode.name compare:kRRFRSSDescription]) {
-            item.description = childNode.stringValue;
+            item.itemDescription = childNode.stringValue;
         } else if (NSOrderedSame == [childNode.name compare:kRRFRSSAuthor]) {
             item.author = childNode.stringValue;
         } else if (NSOrderedSame == [childNode.name compare:kRRFRSSCategory]) {

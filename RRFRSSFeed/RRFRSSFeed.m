@@ -14,16 +14,18 @@ NSString* const kRRFRSSChannelPath = @"/rss/channel";
 NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
 
 @interface RRFRSSFeed ()
-@property (strong, nonatomic) NSURL* rrfURL;
-@property (strong, nonatomic) CXMLDocument* rssParser;
+@property (nonatomic, readwrite, copy) NSString* version;
+@property (nonatomic, readwrite, copy) NSString* url;
+@property (nonatomic, readwrite) RRFRSSChannel* channel;
+@property (nonatomic, readwrite, copy) NSArray* items;
 
-@property (strong, nonatomic) NSMutableArray* rssItems;
+#pragma mark Internal Properties
+@property (nonatomic, strong) NSURL* rrfURL;
+@property (nonatomic, strong) CXMLDocument* rssParser;
+@property (nonatomic, strong) NSMutableArray* rssItems;
 @end
 
 @implementation RRFRSSFeed
-@synthesize version;
-@synthesize channel;
-@synthesize items;
 
 + (instancetype)feedWithURLString:(NSString*)urlString
 {

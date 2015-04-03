@@ -13,6 +13,7 @@ NSString* const kRSSGodfatherFeed = @"http://scripting.com/rss.xml";
 NSString* const kRSSKomenNewsFeed = @"http://ww5.komen.org/KomenNewsRSS.aspx?FolderName=News";
 NSString* const kRSSKomenExternalNewsFeed = @"http://ww5.komen.org/KomenNewsRSS.aspx?FolderName=ExternalNews";
 NSString* const kRSSSwiftNewsFeed = @"http://developer.apple.com/swift/blog/news.rss";
+NSString* const kRSSCoreIntJobsFeed = @"http://jobs.coreint.org/rss.xml";
 
 NSTimeInterval const kRSSWaitTimeout = 15; // seconds
 
@@ -127,6 +128,26 @@ NSTimeInterval const kRSSWaitTimeout = 15; // seconds
         
         // Hey, guess what, Apple's RSS 2.0 feed is not RSS 2.0 compliant.
         //
+        self.feedDone = YES;
+    } failure:^(NSError* error) {
+        XCTFail(@"\"%s\": update feed failed with %@", __PRETTY_FUNCTION__, error);
+        self.feedDone = YES;
+    }];
+    
+    // Wait
+    [self feedRunWaitLoop];
+}
+
+- (void)testCoreIntJobs
+{
+    // Construct the feed.
+    RRFRSSFeed* feed = [RRFRSSFeed feedWithURLString:kRSSCoreIntJobsFeed];
+    
+    // Update the feed.
+    [feed update:^(RRFRSSFeed* feed) {
+        XCTAssertNotNil(feed, @"\"%s\": update feed failed, feed is nil.", __PRETTY_FUNCTION__);
+        XCTAssertEqual(@"http://jobs.coreint.org/rss.xml", feed.url, @"\"%s\": feed description does not match.", __PRETTY_FUNCTION__);
+        //XCTAssertEqual(@"2.0", feed.version, @"\"%s\": feed version does not match.", __PRETTY_FUNCTION__);
         self.feedDone = YES;
     } failure:^(NSError* error) {
         XCTFail(@"\"%s\": update feed failed with %@", __PRETTY_FUNCTION__, error);

@@ -10,10 +10,10 @@
 #import "RRFRSSChannel.h"
 
 @interface RRFRSSFeed : NSObject
-@property (strong, nonatomic) NSString* version;
-@property (strong, nonatomic) NSString* url;
-@property (strong, nonatomic) RRFRSSChannel* channel;
-@property (strong, nonatomic) NSArray* items;
+@property (nonatomic, readonly, copy) NSString* version;
+@property (nonatomic, readonly, copy) NSString* url;
+@property (nonatomic, readonly) RRFRSSChannel* channel;
+@property (nonatomic, readonly, copy) NSArray* items;
 
 + (instancetype)feedWithURLString:(NSString*)urlString;
 + (instancetype)feedWithURL:(NSURL*)url;

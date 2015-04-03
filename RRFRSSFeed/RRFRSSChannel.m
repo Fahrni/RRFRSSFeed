@@ -9,28 +9,31 @@
 #import "RRFRSSConst.h"
 #import "CXMLElement.h"
 
-@implementation RRFRSSChannel
+@interface RRFRSSChannel ()
 // Required RSS 2.0 Channel Elements (http://cyber.law.harvard.edu/rss/rss.html#requiredChannelElements)
-@synthesize title;
-@synthesize link;
-@synthesize description;
+@property (nonatomic, readwrite, copy) NSString* title;
+@property (nonatomic, readwrite, copy) NSString* link;
+@property (nonatomic, readwrite, copy) NSString* channelDescription;
 // Optional RRS 2.0 Channel Elements (http://cyber.law.harvard.edu/rss/rss.html#optionalChannelElements)
-@synthesize language;
-@synthesize copyright;
-@synthesize managingEditor;
-@synthesize webMaster;
-@synthesize pubDate;
-@synthesize lastBuildDate;
-@synthesize category;
-@synthesize generator;
-@synthesize docs;
-@synthesize cloud;
-@synthesize ttl;
-@synthesize image;
-@synthesize rating;
-@synthesize textInput;
-@synthesize skipHours;
-@synthesize skipDays;
+@property (nonatomic, readwrite, copy) NSString* language;
+@property (nonatomic, readwrite, copy) NSString* copyright;
+@property (nonatomic, readwrite, copy) NSString* managingEditor;
+@property (nonatomic, readwrite, copy) NSString* webMaster;
+@property (nonatomic, readwrite, copy) NSString* pubDate;
+@property (nonatomic, readwrite, copy) NSString* lastBuildDate;
+@property (nonatomic, readwrite, copy) NSString* category;
+@property (nonatomic, readwrite, copy) NSString* generator;
+@property (nonatomic, readwrite, copy) NSString* docs;
+@property (nonatomic, readwrite, copy) NSString* cloud;
+@property (nonatomic, readwrite, copy) NSString* ttl;
+@property (nonatomic, readwrite, copy) NSString* image;
+@property (nonatomic, readwrite, copy) NSString* rating;
+@property (nonatomic, readwrite, copy) NSString* textInput;
+@property (nonatomic, readwrite, copy) NSString* skipHours;
+@property (nonatomic, readwrite, copy) NSString* skipDays;
+@end
+
+@implementation RRFRSSChannel
 
 + (instancetype)channelFrom:(id)channelElement
 {
@@ -42,7 +45,7 @@
             } else if (NSOrderedSame == [childNode.name compare:kRRFRSSLink]) {
                 channel.link = childNode.stringValue;
             } else if (NSOrderedSame == [childNode.name compare:kRRFRSSDescription]) {
-                channel.description = childNode.stringValue;
+                channel.channelDescription = childNode.stringValue;
             } else if (NSOrderedSame == [childNode.name compare:kRRFRSSLanguage]) {
                 channel.language = childNode.stringValue;
             } else if (NSOrderedSame == [childNode.name compare:kRRFRSSCopyright]) {
