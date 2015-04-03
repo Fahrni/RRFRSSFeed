@@ -53,4 +53,9 @@
     return item;
 }
 
+- (NSString*)description
+{
+    return [NSString stringWithFormat:@"<RRFRSSItem title: %@, itemDescription: %@, link: %@", self.title, self.itemDescription, self.link];
+}
+
 @end

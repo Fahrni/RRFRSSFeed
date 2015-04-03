@@ -123,9 +123,6 @@ NSTimeInterval const kRSSWaitTimeout = 15; // seconds
     [feed update:^(RRFRSSFeed* feed) {
         XCTAssertNotNil(feed, @"\"%s\": update feed failed, feed is nil.", __PRETTY_FUNCTION__);
         XCTAssertEqual(@"http://developer.apple.com/swift/blog/news.rss", feed.url, @"\"%s\": feed description does not match.", __PRETTY_FUNCTION__);
-        // Puzzled, the line below fails, but feed.version is 2.0.
-//        XCTAssertEqual(@"2.0", feed.version, @"\"%s\": feed version does not match.", __PRETTY_FUNCTION__);
-        
         // Hey, guess what, Apple's RSS 2.0 feed is not RSS 2.0 compliant.
         //
         self.feedDone = YES;
@@ -146,8 +143,10 @@ NSTimeInterval const kRSSWaitTimeout = 15; // seconds
     // Update the feed.
     [feed update:^(RRFRSSFeed* feed) {
         XCTAssertNotNil(feed, @"\"%s\": update feed failed, feed is nil.", __PRETTY_FUNCTION__);
-        XCTAssertEqual(@"http://jobs.coreint.org/rss.xml", feed.url, @"\"%s\": feed description does not match.", __PRETTY_FUNCTION__);
-        //XCTAssertEqual(@"2.0", feed.version, @"\"%s\": feed version does not match.", __PRETTY_FUNCTION__);
+        NSString* feedUrl = feed.url;
+        XCTAssertEqual(@"http://jobs.coreint.org/rss.xml", feedUrl, @"\"%s\": feed description does not match.", __PRETTY_FUNCTION__);
+        NSString* title = feed.channel.title;
+        XCTAssertNotEqual(@"Core Intuition - Jobs", title, @"\"%s\": feed.channel.title does not match.", __PRETTY_FUNCTION__);
         self.feedDone = YES;
     } failure:^(NSError* error) {
         XCTFail(@"\"%s\": update feed failed with %@", __PRETTY_FUNCTION__, error);

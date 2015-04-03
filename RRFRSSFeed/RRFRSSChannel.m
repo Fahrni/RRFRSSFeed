@@ -9,6 +9,13 @@
 #import "RRFRSSConst.h"
 #import "CXMLElement.h"
 
+//#define DUMP_NODE_TYPE
+#if defined(DUMP_NODE_TYPE)
+#define NODE_TYPE_TO_STRING(instance, nodeType)   [instance rrfrss_nodeTypeToName:nodeType]
+#else
+#define NODE_TYPE_TO_STRING(instance, nodeType)   @""
+#endif // DEBUG
+
 @interface RRFRSSChannel ()
 // Required RSS 2.0 Channel Elements (http://cyber.law.harvard.edu/rss/rss.html#requiredChannelElements)
 @property (nonatomic, readwrite, copy) NSString* title;
@@ -39,44 +46,45 @@
 {
     RRFRSSChannel* channel = [RRFRSSChannel new];
     for (CXMLNode* childNode in ((CXMLElement*)channelElement).children) {
-        if (CXMLAttributeKind == childNode.kind) {
-            if (NSOrderedSame == [childNode.name compare:kRRFRSSTitle]) {
+        //NSLog(@"childNode name: %@, node type: %@", childNode.name, NODE_TYPE_TO_STRING(channel, childNode.kind));
+        if (CXMLElementKind == childNode.kind) {
+            if ([childNode.name isEqualToString:kRRFRSSTitle]) {
                 channel.title = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSLink]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSLink]) {
                 channel.link = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSDescription]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSDescription]) {
                 channel.channelDescription = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSLanguage]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSLanguage]) {
                 channel.language = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSCopyright]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSCopyright]) {
                 channel.copyright = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSManagingEditor]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSManagingEditor]) {
                 channel.managingEditor = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSWebMaster]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSWebMaster]) {
                 channel.webMaster = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSPubDate]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSPubDate]) {
                 channel.pubDate = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSLastBuildDate]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSLastBuildDate]) {
                 channel.lastBuildDate = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSCategory]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSCategory]) {
                 channel.category = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSGenerator]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSGenerator]) {
                 channel.generator = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSDocs]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSDocs]) {
                 channel.docs = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSCloud]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSCloud]) {
                 channel.cloud = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSTtl]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSTtl]) {
                 channel.ttl = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSImage]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSImage]) {
                 channel.image = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSRating]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSRating]) {
                 channel.rating = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSTextInput]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSTextInput]) {
                 channel.textInput = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSSkipHours]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSSkipHours]) {
                 channel.skipHours = childNode.stringValue;
-            } else if (NSOrderedSame == [childNode.name compare:kRRFRSSSkipDays]) {
+            } else if ([childNode.name isEqualToString:kRRFRSSSkipDays]) {
                 channel.skipDays = childNode.stringValue;
             }
         }
@@ -84,4 +92,54 @@
     return channel;
 }
 
+- (NSString*)description
+{
+    return [NSString stringWithFormat:@"<RRFRSSChannel title: %@, channelDescription: %@, link: %@", self.title, self.channelDescription, self.link];
+}
+
+#if defined(DEBUG)
+- (NSString*)rrfrss_nodeTypeToName:(CXMLNodeKind)nodeKind
+{
+    NSString* nodeTypeName = [NSString stringWithFormat:@"[UNKNOWN: %@]", @(nodeKind)];
+    switch (nodeKind) {
+    case CXMLInvalidKind:
+            nodeTypeName = [NSString stringWithFormat:@"[CXMLInvalidKind: %@]", @(nodeKind)];
+            break;
+    case CXMLElementKind:
+            nodeTypeName = [NSString stringWithFormat:@"[CXMLElementKind: %@]", @(nodeKind)];
+            break;
+    case CXMLAttributeKind:
+            nodeTypeName = [NSString stringWithFormat:@"[CXMLAttributeKind: %@]", @(nodeKind)];
+            break;
+    case CXMLTextKind:
+            nodeTypeName = [NSString stringWithFormat:@"[CXMLTextKind: %@]", @(nodeKind)];
+            break;
+    case CXMLProcessingInstructionKind:
+            nodeTypeName = [NSString stringWithFormat:@"[CXMLProcessingInstructionKind: %@]", @(nodeKind)];
+            break;
+    case CXMLCommentKind:
+            nodeTypeName = [NSString stringWithFormat:@"[CXMLCommentKind: %@]", @(nodeKind)];
+            break;
+    case CXMLNotationDeclarationKind:
+            nodeTypeName = [NSString stringWithFormat:@"[CXMLNotationDeclarationKind: %@]", @(nodeKind)];
+            break;
+    case CXMLDTDKind:
+            nodeTypeName = [NSString stringWithFormat:@"[CXMLDTDKind: %@]", @(nodeKind)];
+            break;
+    case CXMLElementDeclarationKind:
+            nodeTypeName = [NSString stringWithFormat:@"[CXMLElementDeclarationKind: %@]", @(nodeKind)];
+            break;
+    case CXMLAttributeDeclarationKind:
+            nodeTypeName = [NSString stringWithFormat:@"[CXMLAttributeDeclarationKind: %@]", @(nodeKind)];
+            break;
+    case CXMLEntityDeclarationKind:
+            nodeTypeName = [NSString stringWithFormat:@"[CXMLEntityDeclarationKind: %@]", @(nodeKind)];
+            break;
+    case CXMLNamespaceKind:
+            nodeTypeName = [NSString stringWithFormat:@"[CXMLNamespaceKind: %@]", @(nodeKind)];
+            break;
+    }
+    return nodeTypeName;
+}
+#endif
 @end
