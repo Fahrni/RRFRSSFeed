@@ -47,7 +47,7 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
 
 - (NSString*)description
 {
-    return [NSString stringWithFormat:@"<RRFRSSItem version: %@, url: %@", self.version, self.url];
+    return [NSString stringWithFormat:@"<RRFRSSFeed version: %@, url: %@", self.version, self.url];
 }
 
 - (NSString*)url
