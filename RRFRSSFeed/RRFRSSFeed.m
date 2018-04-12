@@ -16,8 +16,8 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
 @interface RRFRSSFeed ()
 @property (nonatomic, readwrite, copy) NSString* version;
 @property (nonatomic, readwrite, copy) NSString* url;
-@property (nonatomic, readwrite) RRFRSSChannel* channel;
-@property (nonatomic, readwrite, copy) NSArray* items;
+@property (nonatomic, readwrite) RRFRSSChannel* _Nullable channel;
+@property (nonatomic, readwrite, copy) NSArray* _Nullable items;
 
 #pragma mark Internal Properties
 @property (nonatomic, strong) NSURL* rrfURL;
@@ -37,7 +37,7 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
     return [[RRFRSSFeed alloc] initWithURL:url];
 }
 
-- (id)initWithURL:(NSURL*)url
+- (instancetype)initWithURL:(NSURL*)url
 {
     if ((self = [super init])) {
         self.rrfURL = url;
@@ -45,17 +45,22 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
     return self;
 }
 
-- (NSString*)description
+- (NSString* _Nonnull)description
 {
     return [NSString stringWithFormat:@"<RRFRSSFeed version: %@, url: %@", self.version, self.url];
 }
 
-- (NSString*)url
+- (NSString* _Nonnull)version
+{
+    return @"1.1.0";
+}
+
+- (NSString* _Nonnull)url
 {
     return self.rrfURL.absoluteString;
 }
 
-- (NSArray*)items
+- (NSArray* _Nullable)items
 {
     return self.rssItems;
 }
@@ -84,7 +89,7 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
     });
 }
 
-- (NSError*)rssParseBasic
+- (NSError* _Nullable)rssParseBasic
 {
     NSError* error = nil;
     id rss = [[self.rssParser rootElement] nodeForXPath:kRRFRSSRoot error:&error];
@@ -95,7 +100,7 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
     return error;
 }
 
-- (NSError*)rssParseChannel
+- (NSError* _Nullable)rssParseChannel
 {
     NSError* error = nil;
     id channelElement = [[self.rssParser rootElement] nodeForXPath:kRRFRSSChannelPath error:&error];
@@ -105,7 +110,7 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
     return error;
 }
 
-- (NSError*)rssParseItems
+- (NSError* _Nullable)rssParseItems
 {
     NSError* error = nil;
     NSArray* nodes = [[self.rssParser rootElement] nodesForXPath:kRRFRSSChannelItemPath error:&error];

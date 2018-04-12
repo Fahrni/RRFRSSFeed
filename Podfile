@@ -1,4 +1,10 @@
-platform :ios, '7.0'
-xcodeproj 'RRFRSSFeed.xcodeproj'
+# Uncomment this line to define a global platform for your project
+platform :ios, '11.0'
 
-pod 'TouchXML', '~> 0.1'
+target 'RRFRSSFeed' do
+	pod 'TouchXML', '~> 0.1'
+	
+	target 'RRFRSSFeedTests' do
+    	inherit! :search_paths
+ 	end
+end

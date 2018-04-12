@@ -10,17 +10,17 @@
 #import "RRFRSSChannel.h"
 
 @interface RRFRSSFeed : NSObject
-@property (nonatomic, readonly, copy) NSString* version;
-@property (nonatomic, readonly, copy) NSString* url;
-@property (nonatomic, readonly) RRFRSSChannel* channel;
-@property (nonatomic, readonly, copy) NSArray* items;
+@property (nonatomic, readonly, copy) NSString* _Nonnull version;
+@property (nonatomic, readonly, copy) NSString* _Nonnull url;
+@property (nonatomic, readonly) RRFRSSChannel* _Nullable channel;
+@property (nonatomic, readonly, copy) NSArray* _Nullable items;
 
-+ (instancetype)feedWithURLString:(NSString*)urlString;
-+ (instancetype)feedWithURL:(NSURL*)url;
++ (instancetype _Nullable)feedWithURLString:(NSString* _Nonnull)urlString;
++ (instancetype _Nullable)feedWithURL:(NSURL* _Nonnull)url;
 
-- (id)initWithURL:(NSURL*)url;
+- (instancetype _Nullable)initWithURL:(NSURL* _Nonnull)url;
 
-- (void)update:(RRFRSSFeedSuccessBlock)success
-       failure:(RRFRSSFailureBlock)failure;
+- (void)update:(RRFRSSFeedSuccessBlock _Nonnull)success
+       failure:(RRFRSSFailureBlock _Nonnull)failure;
 
 @end

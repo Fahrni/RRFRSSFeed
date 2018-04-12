@@ -10,21 +10,21 @@
 #import "CXMLElement.h"
 
 @interface RRFRSSItem ()
-@property (nonatomic, readwrite, copy) NSString* title;
-@property (nonatomic, readwrite, copy) NSString* link;
-@property (nonatomic, readwrite, copy) NSString* itemDescription;
-@property (nonatomic, readwrite, copy) NSString* author;
-@property (nonatomic, readwrite, copy) NSString* category;
-@property (nonatomic, readwrite, copy) NSString* comments;
-@property (nonatomic, readwrite, copy) NSString* enclosure;
-@property (nonatomic, readwrite, copy) NSString* guid;
-@property (nonatomic, readwrite, copy) NSString* pubDate;
-@property (nonatomic, readwrite, copy) NSString* source;
+@property (nonatomic, readwrite, copy) NSString* _Nonnull title;
+@property (nonatomic, readwrite, copy) NSString* _Nonnull link;
+@property (nonatomic, readwrite, copy) NSString* _Nullable itemDescription;
+@property (nonatomic, readwrite, copy) NSString* _Nullable author;
+@property (nonatomic, readwrite, copy) NSString* _Nullable category;
+@property (nonatomic, readwrite, copy) NSString* _Nullable comments;
+@property (nonatomic, readwrite, copy) NSString* _Nullable enclosure;
+@property (nonatomic, readwrite, copy) NSString* _Nullable guid;
+@property (nonatomic, readwrite, copy) NSString* _Nullable pubDate;
+@property (nonatomic, readwrite, copy) NSString* _Nullable source;
 @end
 
 @implementation RRFRSSItem
 
-+ (instancetype)itemFrom:(id)itemElement
++ (instancetype _Nullable)itemFrom:(id)itemElement
 {
     RRFRSSItem* item = [RRFRSSItem new];
     for (CXMLNode* childNode in ((CXMLElement*)itemElement).children) {
@@ -53,7 +53,7 @@
     return item;
 }
 
-- (NSString*)description
+- (NSString* _Nonnull)description
 {
     return [NSString stringWithFormat:@"<RRFRSSItem title: %@, itemDescription: %@, link: %@", self.title, self.itemDescription, self.link];
 }

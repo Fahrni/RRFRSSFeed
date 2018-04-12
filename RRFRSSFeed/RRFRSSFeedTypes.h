@@ -11,6 +11,6 @@
 
 // Simple typedef's for expected blocks
 typedef void (^RRFRSSFailureBlock)(NSError* error);
-typedef void (^RRFRSSEmptySuccessBlock)();
+typedef void (^RRFRSSEmptySuccessBlock)(void);
 typedef void (^RRFRSSFeedSuccessBlock)(RRFRSSFeed* feed);
 

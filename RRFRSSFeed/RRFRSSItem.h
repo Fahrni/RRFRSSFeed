@@ -9,16 +9,16 @@
 
 @interface RRFRSSItem : NSObject
 // From the RSS 2.0 Item specification - http://cyber.law.harvard.edu/rss/rss.html#hrelementsOfLtitemgt
-@property (nonatomic, readonly, copy) NSString* title;
-@property (nonatomic, readonly, copy) NSString* link;
-@property (nonatomic, readonly, copy) NSString* itemDescription;
-@property (nonatomic, readonly, copy) NSString* author;
-@property (nonatomic, readonly, copy) NSString* category;
-@property (nonatomic, readonly, copy) NSString* comments;
-@property (nonatomic, readonly, copy) NSString* enclosure;
-@property (nonatomic, readonly, copy) NSString* guid;
-@property (nonatomic, readonly, copy) NSString* pubDate;
-@property (nonatomic, readonly, copy) NSString* source;
+@property (nonatomic, readonly, copy) NSString* _Nonnull title;
+@property (nonatomic, readonly, copy) NSString* _Nonnull link;
+@property (nonatomic, readonly, copy) NSString* _Nullable itemDescription;
+@property (nonatomic, readonly, copy) NSString* _Nullable author;
+@property (nonatomic, readonly, copy) NSString* _Nullable category;
+@property (nonatomic, readonly, copy) NSString* _Nullable comments;
+@property (nonatomic, readonly, copy) NSString* _Nullable enclosure;
+@property (nonatomic, readonly, copy) NSString* _Nullable guid;
+@property (nonatomic, readonly, copy) NSString* _Nullable pubDate;
+@property (nonatomic, readonly, copy) NSString* _Nullable source;
 
-+ (instancetype)itemFrom:(id)itemElement;
++ (instancetype _Nullable)itemFrom:(id _Nonnull)itemElement;
 @end

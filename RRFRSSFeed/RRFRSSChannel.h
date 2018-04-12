@@ -9,26 +9,26 @@
 
 @interface RRFRSSChannel : NSObject
 // Required RSS 2.0 Channel Elements (http://cyber.law.harvard.edu/rss/rss.html#requiredChannelElements)
-@property (nonatomic, readonly, copy) NSString* title;
-@property (nonatomic, readonly, copy) NSString* link;
-@property (nonatomic, readonly, copy) NSString* channelDescription;
+@property (nonatomic, readonly, copy) NSString* _Nonnull title;
+@property (nonatomic, readonly, copy) NSString* _Nonnull link;
+@property (nonatomic, readonly, copy) NSString* _Nonnull channelDescription;
 // Optional RRS 2.0 Channel Elements (http://cyber.law.harvard.edu/rss/rss.html#optionalChannelElements)
-@property (nonatomic, readonly, copy) NSString* language;
-@property (nonatomic, readonly, copy) NSString* copyright;
-@property (nonatomic, readonly, copy) NSString* managingEditor;
-@property (nonatomic, readonly, copy) NSString* webMaster;
-@property (nonatomic, readonly, copy) NSString* pubDate;
-@property (nonatomic, readonly, copy) NSString* lastBuildDate;
-@property (nonatomic, readonly, copy) NSString* category;
-@property (nonatomic, readonly, copy) NSString* generator;
-@property (nonatomic, readonly, copy) NSString* docs;
-@property (nonatomic, readonly, copy) NSString* cloud;
-@property (nonatomic, readonly, copy) NSString* ttl;
-@property (nonatomic, readonly, copy) NSString* image;
-@property (nonatomic, readonly, copy) NSString* rating;
-@property (nonatomic, readonly, copy) NSString* textInput;
-@property (nonatomic, readonly, copy) NSString* skipHours;
-@property (nonatomic, readonly, copy) NSString* skipDays;
+@property (nonatomic, readonly, copy) NSString* _Nullable language;
+@property (nonatomic, readonly, copy) NSString* _Nullable copyright;
+@property (nonatomic, readonly, copy) NSString* _Nullable managingEditor;
+@property (nonatomic, readonly, copy) NSString* _Nullable webMaster;
+@property (nonatomic, readonly, copy) NSString* _Nullable pubDate;
+@property (nonatomic, readonly, copy) NSString* _Nullable lastBuildDate;
+@property (nonatomic, readonly, copy) NSString* _Nullable category;
+@property (nonatomic, readonly, copy) NSString* _Nullable generator;
+@property (nonatomic, readonly, copy) NSString* _Nullable docs;
+@property (nonatomic, readonly, copy) NSString* _Nullable cloud;
+@property (nonatomic, readonly, copy) NSString* _Nullable ttl;
+@property (nonatomic, readonly, copy) NSString* _Nullable image;
+@property (nonatomic, readonly, copy) NSString* _Nullable rating;
+@property (nonatomic, readonly, copy) NSString* _Nullable textInput;
+@property (nonatomic, readonly, copy) NSString* _Nullable skipHours;
+@property (nonatomic, readonly, copy) NSString* _Nullable skipDays;
 
-+ (instancetype)channelFrom:(id)channelElement;
++ (instancetype _Nullable)channelFrom:(id _Nonnull)channelElement;
 @end
