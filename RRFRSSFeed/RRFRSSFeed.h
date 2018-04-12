@@ -20,7 +20,6 @@
 
 - (instancetype _Nullable)initWithURL:(NSURL* _Nonnull)url;
 
-- (void)update:(RRFRSSFeedSuccessBlock _Nonnull)success
-       failure:(RRFRSSFailureBlock _Nonnull)failure;
+- (void)update:(RRFRSSFeedCompletionBlock _Nonnull)completion;
 
 @end

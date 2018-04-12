@@ -65,8 +65,7 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
     return self.rssItems;
 }
 
-- (void)update:(RRFRSSFeedSuccessBlock)success
-       failure:(RRFRSSFailureBlock)failure;
+- (void)update:(RRFRSSFeedCompletionBlock _Nonnull)completion
 {
     // Create a GCD queue to download and parse the update.
     dispatch_queue_t updateQueue = dispatch_queue_create(kRRFRSSUpdateQueue, NULL);
@@ -77,14 +76,11 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
             [self rssParseBasic];
             [self rssParseChannel];
             [self rssParseItems];
-            if (success) {
-                success(self);
+            if (completion) {
+                completion(self, nil);
             }
-        } else if (failure) {
-            if (nil == error) {
-                error = [NSError errorWithDomain:kRRFRSSErrorDomain code:kRRFRSSInitFailed userInfo:nil];
-            }
-            failure(error);
+        } else if (completion && error) {
+            completion(nil, error);
         }
     });
 }
@@ -119,7 +115,7 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
         for (CXMLNode* item in nodes) {
             if (NSOrderedSame == [item.name compare:kRRFRSSItem]) {
                 RRFRSSItem* rssItem = [RRFRSSItem itemFrom:item];
-                if (item) {
+                if (rssItem) {
                     [self.rssItems addObject:rssItem];
                 }
             }

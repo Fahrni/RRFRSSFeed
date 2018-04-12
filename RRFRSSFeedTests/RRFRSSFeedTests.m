@@ -10,15 +10,13 @@
 
 // Since Dave Winer is the father of RSS, let's parse his feed.
 NSString* const kRSSGodfatherFeed = @"http://scripting.com/rss.xml";
-NSString* const kRSSKomenNewsFeed = @"http://ww5.komen.org/KomenNewsRSS.aspx?FolderName=News";
-NSString* const kRSSKomenExternalNewsFeed = @"http://ww5.komen.org/KomenNewsRSS.aspx?FolderName=ExternalNews";
 NSString* const kRSSSwiftNewsFeed = @"http://developer.apple.com/swift/blog/news.rss";
-NSString* const kRSSCoreIntJobsFeed = @"http://jobs.coreint.org/rss.xml";
+NSString* const kRSSRobsFeed = @"https://iam.fahrni.me/feed";
+NSString* const kRSSBogusFeed = @"http://jobs.coreint.org/rss.xml";
 
 NSTimeInterval const kRSSWaitTimeout = 15; // seconds
 
 @interface RRFRSSFeedTests : XCTestCase
-@property (assign, nonatomic) __block BOOL feedDone;
 @end
 
 @implementation RRFRSSFeedTests
@@ -26,8 +24,6 @@ NSTimeInterval const kRSSWaitTimeout = 15; // seconds
 - (void)setUp
 {
     [super setUp];
-    
-    self.feedDone = NO;
 }
 
 - (void)tearDown
@@ -44,133 +40,68 @@ NSTimeInterval const kRSSWaitTimeout = 15; // seconds
 
 - (void)testUpdateGodfather
 {
-    // Construct the feed.
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Update Godfather"];
+
     RRFRSSFeed* feed = [RRFRSSFeed feedWithURLString:kRSSGodfatherFeed];
-    
-    // Update the feed.
-    [feed update:^(RRFRSSFeed* feed) {
+    [feed update:^(RRFRSSFeed* feed, NSError* error) {
+        XCTAssertNil(error, @"\"%s\": update feed failed, error is NOT nil.", __PRETTY_FUNCTION__);
         XCTAssertNotNil(feed, @"\"%s\": update feed failed, feed is nil.", __PRETTY_FUNCTION__);
-        self.feedDone = YES;
-    } failure:^(NSError* error) {
-        XCTFail(@"\"%s\": update feed failed with %@", __PRETTY_FUNCTION__, error);
-        self.feedDone = YES;
+        [expectation fulfill];
     }];
-    
-    // Wait
-    [self feedRunWaitLoop];
-}
-
-- (void)testUpdateKomen
-{
-    // Construct the feed.
-    RRFRSSFeed* feed = [RRFRSSFeed feedWithURLString:kRSSKomenNewsFeed];
-    
-    // Update the feed.
-    [feed update:^(RRFRSSFeed* feed) {
-        XCTAssertNotNil(feed, @"\"%s\": update feed failed, feed is nil.", __PRETTY_FUNCTION__);
-        self.feedDone = YES;
-    } failure:^(NSError* error) {
-        XCTFail(@"\"%s\": update feed failed with %@", __PRETTY_FUNCTION__, error);
-        self.feedDone = YES;
-    }];
-    
-    // Wait
-    [self feedRunWaitLoop];
-}
-
-- (void)testUpdateKomenExternal
-{
-    // Construct the feed.
-    RRFRSSFeed* feed = [RRFRSSFeed feedWithURLString:kRSSKomenExternalNewsFeed];
-    
-    // Update the feed.
-    [feed update:^(RRFRSSFeed* feed) {
-        XCTAssertNotNil(feed, @"\"%s\": update feed failed, feed is nil.", __PRETTY_FUNCTION__);
-        self.feedDone = YES;
-    } failure:^(NSError* error) {
-        XCTFail(@"\"%s\": update feed failed with %@", __PRETTY_FUNCTION__, error);
-        self.feedDone = YES;
-    }];
-    
-    // Wait
-    [self feedRunWaitLoop];
+    [self waitForExpectationsWithTimeout:kRSSWaitTimeout handler:nil];
 }
 
 - (void)testUpdateSwift
 {
-    // Construct the feed.
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Update Swift"];
+
     RRFRSSFeed* feed = [RRFRSSFeed feedWithURLString:kRSSSwiftNewsFeed];
-    
-    // Update the feed.
-    [feed update:^(RRFRSSFeed* feed) {
+    [feed update:^(RRFRSSFeed* feed, NSError* error) {
+        XCTAssertNil(error, @"\"%s\": update feed failed, error is NOT nil.", __PRETTY_FUNCTION__);
         XCTAssertNotNil(feed, @"\"%s\": update feed failed, feed is nil.", __PRETTY_FUNCTION__);
-        self.feedDone = YES;
-    } failure:^(NSError* error) {
-        XCTFail(@"\"%s\": update feed failed with %@", __PRETTY_FUNCTION__, error);
-        self.feedDone = YES;
+        [expectation fulfill];
     }];
-    
-    // Wait
-    [self feedRunWaitLoop];
+    [self waitForExpectationsWithTimeout:kRSSWaitTimeout handler:nil];
+}
+
+- (void)testRobsFeed
+{
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Update Rob"];
+
+    RRFRSSFeed* feed = [RRFRSSFeed feedWithURLString:kRSSRobsFeed];
+    [feed update:^(RRFRSSFeed* feed, NSError* error) {
+        XCTAssertNil(error, @"\"%s\": update feed failed, error is NOT nil.", __PRETTY_FUNCTION__);
+        XCTAssertNotNil(feed, @"\"%s\": update feed failed, feed is nil.", __PRETTY_FUNCTION__);
+        [expectation fulfill];
+    }];
+    [self waitForExpectationsWithTimeout:kRSSWaitTimeout handler:nil];
 }
 
 - (void)testFeedBasics
 {
-    // Construct the feed.
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Update Feed Basics"];
+
     RRFRSSFeed* feed = [RRFRSSFeed feedWithURLString:kRSSSwiftNewsFeed];
-    
-    // Update the feed.
-    [feed update:^(RRFRSSFeed* feed) {
+    [feed update:^(RRFRSSFeed* feed, NSError* error) {
+        XCTAssertNil(error, @"\"%s\": update feed failed, error is NOT nil.", __PRETTY_FUNCTION__);
         XCTAssertNotNil(feed, @"\"%s\": update feed failed, feed is nil.", __PRETTY_FUNCTION__);
         XCTAssertEqual(@"http://developer.apple.com/swift/blog/news.rss", feed.url, @"\"%s\": feed description does not match.", __PRETTY_FUNCTION__);
-        // Hey, guess what, Apple's RSS 2.0 feed is not RSS 2.0 compliant.
-        //
-        self.feedDone = YES;
-    } failure:^(NSError* error) {
-        XCTFail(@"\"%s\": update feed failed with %@", __PRETTY_FUNCTION__, error);
-        self.feedDone = YES;
+        [expectation fulfill];
     }];
-    
-    // Wait
-    [self feedRunWaitLoop];
+    [self waitForExpectationsWithTimeout:kRSSWaitTimeout handler:nil];
 }
 
-- (void)testCoreIntJobs
+- (void)testBogusFeed
 {
-    // Construct the feed.
-    RRFRSSFeed* feed = [RRFRSSFeed feedWithURLString:kRSSCoreIntJobsFeed];
-    
-    // Update the feed.
-    [feed update:^(RRFRSSFeed* feed) {
-        XCTAssertNotNil(feed, @"\"%s\": update feed failed, feed is nil.", __PRETTY_FUNCTION__);
-        NSString* feedUrl = feed.url;
-        XCTAssertEqual(@"http://jobs.coreint.org/rss.xml", feedUrl, @"\"%s\": feed description does not match.", __PRETTY_FUNCTION__);
-        NSString* title = feed.channel.title;
-        XCTAssertNotEqual(@"Core Intuition - Jobs", title, @"\"%s\": feed.channel.title does not match.", __PRETTY_FUNCTION__);
-        self.feedDone = YES;
-    } failure:^(NSError* error) {
-        XCTFail(@"\"%s\": update feed failed with %@", __PRETTY_FUNCTION__, error);
-        self.feedDone = YES;
+    XCTestExpectation *expectation = [self expectationWithDescription:@"Update Bogus Feed"];
+
+    RRFRSSFeed* feed = [RRFRSSFeed feedWithURLString:kRSSBogusFeed];
+    [feed update:^(RRFRSSFeed* feed, NSError* error) {
+        XCTAssertNotNil(error, @"\"%s\": update feed failed, error is nil, should have failed.", __PRETTY_FUNCTION__);
+        XCTAssertNil(feed, @"\"%s\": update feed failed, feed is NOT nil.", __PRETTY_FUNCTION__);
+        [expectation fulfill];
     }];
-    
-    // Wait
-    [self feedRunWaitLoop];
+    [self waitForExpectationsWithTimeout:kRSSWaitTimeout handler:nil];
 }
 
-
-#pragma mark - Lazy man's asynchronous wait loop
-
-- (void)feedRunWaitLoop
-{
-    // Reset our _done flag.
-    self.feedDone = NO;
-    
-    // Get the current run loop.
-    NSRunLoop* runLoop = [NSRunLoop currentRunLoop];
-    
-    // Spin until the _done is YES or we've waited for xx seconds.
-    // Yep, it's a complete hack, just to get this working.
-    while ((NO == self.feedDone) &&
-           [runLoop runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:kRSSWaitTimeout]]);
-}
 @end

@@ -10,7 +10,4 @@
 @class RRFRSSFeed;
 
 // Simple typedef's for expected blocks
-typedef void (^RRFRSSFailureBlock)(NSError* error);
-typedef void (^RRFRSSEmptySuccessBlock)(void);
-typedef void (^RRFRSSFeedSuccessBlock)(RRFRSSFeed* feed);
-
+typedef void (^RRFRSSFeedCompletionBlock)(RRFRSSFeed* _Nullable feed, NSError* _Nullable error);
