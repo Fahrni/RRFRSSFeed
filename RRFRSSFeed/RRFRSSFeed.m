@@ -23,7 +23,7 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
 #pragma mark Internal Properties
 @property (nonatomic, strong) NSURL* rrfURL;
 @property (nonatomic, strong) CXMLDocument* rssParser;
-@property (nonatomic, strong) NSMutableArray* rssItems;
+@property (nonatomic, strong) NSMutableArray<RRFRSSItem*>* rssItems;
 @end
 
 @implementation RRFRSSFeed
@@ -61,7 +61,7 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
     return self.rrfURL.absoluteString;
 }
 
-- (NSArray* _Nullable)items
+- (NSArray<RRFRSSItem*>* _Nullable)items
 {
     return self.rssItems;
 }

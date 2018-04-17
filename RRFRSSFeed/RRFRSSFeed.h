@@ -8,12 +8,13 @@
 #import <Foundation/Foundation.h>
 #import "RRFRSSFeedTypes.h"
 #import "RRFRSSChannel.h"
+#import "RRFRSSItem.h"
 
 @interface RRFRSSFeed : NSObject
 @property (nonatomic, readonly, copy) NSString* _Nonnull version;
 @property (nonatomic, readonly, copy) NSString* _Nonnull url;
 @property (nonatomic, readonly) RRFRSSChannel* _Nullable channel;
-@property (nonatomic, readonly, copy) NSArray* _Nullable items;
+@property (nonatomic, readonly, copy) NSArray<RRFRSSItem*>* _Nullable items;
 
 + (instancetype _Nullable)feedWithURLString:(NSString* _Nonnull)urlString;
 + (instancetype _Nullable)feedWithURL:(NSURL* _Nonnull)url;
