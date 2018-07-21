@@ -22,6 +22,7 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
 
 #pragma mark Internal Properties
 @property (nonatomic, strong) NSURL* rrfURL;
+@property (nonatomic, strong) NSData* rrfData;
 @property (nonatomic, strong) CXMLDocument* rssParser;
 @property (nonatomic, strong) NSMutableArray<RRFRSSItem*>* rssItems;
 @end
@@ -42,8 +43,18 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
 {
     if ((self = [super init])) {
         self.rrfURL = url;
+        self.rrfData = nil;
     }
     return self;
+}
+
+- (instancetype _Nullable)initWithData:(NSData* _Nonnull)data {
+    if ((self = [super init])) {
+        self.rrfData = data;
+        self.rrfURL = nil;
+    }
+    return self;
+
 }
 
 - (NSString* _Nonnull)description
@@ -72,7 +83,11 @@ NSString* const kRRFRSSChannelItemPath = @"/rss/channel/item";
     dispatch_queue_t updateQueue = dispatch_queue_create(kRRFRSSUpdateQueue, NULL);
     dispatch_async(updateQueue, ^{
         NSError* error = nil;
-        self.rssParser = [[CXMLDocument alloc] initWithContentsOfURL:self.rrfURL options:0  error:&error];
+        if (self.rrfURL == nil) {
+            self.rssParser = [[CXMLDocument alloc] initWithData:self.rrfData options:0 error:&error];
+        } else {
+            self.rssParser = [[CXMLDocument alloc] initWithContentsOfURL:self.rrfURL options:0 error:&error];
+        }
         if (nil == error && self.rssParser) {
             [self rssParseBasic];
             [self rssParseChannel];

@@ -20,6 +20,7 @@
 + (instancetype _Nullable)feedWithURL:(NSURL* _Nonnull)url;
 
 - (instancetype _Nullable)initWithURL:(NSURL* _Nonnull)url;
+- (instancetype _Nullable)initWithData:(NSData* _Nonnull)data; 
 
 - (void)update:(RRFRSSFeedCompletionBlock _Nonnull)completion;
 
